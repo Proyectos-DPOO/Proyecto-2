@@ -1,0 +1,64 @@
+package Recepcionista;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class MainWindow extends JFrame implements ActionListener{
+	public MainWindow() {
+		super("Mi aplicación");
+			
+		
+		setLayout(new FlowLayout());
+		setSize(400,400);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		CancelacionConsumoButton = new JButton("Cancelacion Consumo");
+		CancelacionConsumoButton.addActionListener(this);
+		add(CancelacionConsumoButton);
+		
+		CancelacionReservaButton = new JButton("Cancelacion Reserva");
+		CancelacionReservaButton.addActionListener(this);
+		add(CancelacionReservaButton);
+		
+		CheckInButton = new JButton("CheckIn");
+		CheckInButton.addActionListener(this);
+		add(CheckInButton);
+		
+		CheckOutButton = new JButton("CheckOut");
+		CheckOutButton.addActionListener(this);
+		add(CheckOutButton);
+		
+		FacturaButton = new JButton("Factura");
+		FacturaButton.addActionListener(this);
+		add(FacturaButton);
+
+		RealizarReservaButton = new JButton("Realizar Reserva");
+		RealizarReservaButton.addActionListener(this);
+		add(RealizarReservaButton);
+		
+
+	}	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object o = e.getSource();
+		if (o == CancelacionConsumoButton) {
+			JOptionPane.showMessageDialog(null, "Cancelar");
+		} else if (o == RealizarReservaButton) {
+			System.exit(0);
+		}
+		
+	}
+	private JButton CancelacionConsumoButton;
+	private JButton CancelacionReservaButton;
+	private JButton CheckInButton;
+	private JButton CheckOutButton;
+	private JButton FacturaButton;
+	private JButton RealizarReservaButton;
+	
+}

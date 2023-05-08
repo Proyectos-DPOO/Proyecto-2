@@ -1,0 +1,51 @@
+package pueba2;
+
+import java.awt.FlowLayout;
+
+public class Cama extends JFrame implements ActionListener{
+	public Cama() {
+		super("Cama");
+				
+		setLayout(new FlowLayout());
+		setSize(400,400);
+		setLocationRelativeTo(null);
+		SencillaButton = new JButton("Sencilla");
+		add(SencillaButton);		
+				
+		setLayout(new FlowLayout());
+		setSize(400,400);
+		setLocationRelativeTo(null);
+		DobleButton = new JButton("Doble");
+		add(DobleButton);
+		
+		setLayout(new FlowLayout());
+		setSize(400,400);
+		setLocationRelativeTo(null);
+		QueenButton = new JButton("Queen");
+		add(QueenButton);		
+				
+		setLayout(new FlowLayout());
+		setSize(400,400);
+		setLocationRelativeTo(null);
+		KingButton = new JButton("King");
+		add(KingButton);
+		
+		setLayout(new FlowLayout());
+		setSize(400,400);
+		setLocationRelativeTo(null);
+		KidButton = new JButton("Kid");
+		add(KidButton);
+				
+	}	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+				
+	}
+	private JButton SencillaButton;
+	private JButton DobleButton;
+	private JButton QueenButton;
+	private JButton KingButton;
+	private JButton KidButton;
+	
+			
+}
