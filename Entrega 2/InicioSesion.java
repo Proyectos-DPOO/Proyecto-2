@@ -12,6 +12,7 @@ public class InicioSesion extends JFrame implements ActionListener {
     private JTextField nuevoNombreUsuario;
     private JPasswordField nuevaContrasenia;
     private JTextField nuevoCorreoElectronico;
+    private JComboBox<String> tipoUsuario; // Agregamos la selección desplegable
 
     public InicioSesion() {
         // Config de la ventana principal
@@ -21,13 +22,17 @@ public class InicioSesion extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
 
         // Panel para el formulario de inicio de sesión
-        JPanel panelInicioSesion = new JPanel(new GridLayout(3, 2));
+        JPanel panelInicioSesion = new JPanel(new GridLayout(4, 2)); // Cambiamos a 4 filas
+        JLabel etiquetaTipoUsuario = new JLabel("Tipo de usuario:"); // Agregamos la etiqueta para la selección desplegable
+        tipoUsuario = new JComboBox<String>(new String[]{"Administrador", "Recepcionista", "Empleado"}); // Agregamos la selección desplegable con las opciones
         JLabel etiquetaNombreUsuario = new JLabel("Nombre de usuario:");
         nombreUsuario = new JTextField();
         JLabel etiquetaContrasenia = new JLabel("Contraseña:");
         contrasenia = new JPasswordField();
         botonIniciarSesion = new JButton("Iniciar sesión");
         botonIniciarSesion.addActionListener(this);
+        panelInicioSesion.add(etiquetaTipoUsuario);
+        panelInicioSesion.add(tipoUsuario);
         panelInicioSesion.add(etiquetaNombreUsuario);
         panelInicioSesion.add(nombreUsuario);
         panelInicioSesion.add(etiquetaContrasenia);
@@ -63,14 +68,35 @@ public class InicioSesion extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+
     // Evento 
     public void actionPerformed(ActionEvent evento) {
         if (evento.getSource() == botonIniciarSesion) {
             // Lógica para iniciar sesión con el nombre de usuario y contraseña ingresados
-            // ...
+            String usuario = nombreUsuario.getText();
+            String contrasenia = new String(this.contrasenia.getPassword());
+            String tipo = tipoUsuario.getSelectedItem().toString();
+
+            // Aquí puedes realizar las acciones correspondientes según el tipo de usuario seleccionado
+            if (tipo.equals("Administrador")) {
+                // Acciones para el administrador
+                System.out.println("Iniciando sesión como Administrador");
+            } else if (tipo.equals("Recepcionista")) {
+                // Acciones para el recepcionista
+                System.out.println("Iniciando sesión como Recepcionista");
+            } else if (tipo.equals("Empleado")) {
+                // Acciones para el empleado
+                System.out.println("Iniciando sesión como Empleado");
+            }
+
         } else if (evento.getSource() == botonCrearUsuario) {
             // Lógica para crear un nuevo usuario con los valores ingresados
-            // ...
+            String nuevoUsuario = nuevoNombreUsuario.getText();
+            String nuevaContrasenia = new String(this.nuevaContrasenia.getPassword());
+            String nuevoCorreo = nuevoCorreoElectronico.getText();
+
+            // Aquí puedes realizar las acciones correspondientes para crear un nuevo usuario
+            System.out.println("Creando nuevo usuario");
         }
     }
 
