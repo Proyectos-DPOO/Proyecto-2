@@ -1,0 +1,32 @@
+package prueba2;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Checkin extends JPanel {
+    public CheckinPanel() {
+        JButton entradaButton = new JButton("Entrada");
+        entradaButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Acción a realizar cuando se presione el botón "Entrada"
+                System.out.println("Se presionó el botón Entrada");
+            }
+        });
+
+        add(entradaButton);
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Checkin");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
+
+        JPanel panel = new CheckinPanel();
+        frame.add(panel);
+
+        frame.setVisible(true);
+    }
+}
